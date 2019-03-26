@@ -35,7 +35,7 @@ export class Clock extends Component {
         console.log("Calling the Timer");
         let count = this.state.timeLeft - 1;
         if(count>=0){
-            if(count==0) this.buzzer();
+            if(count===0) this.buzzer();
             this.setState({timeLeft:count});
         }else{
             this.props.switchPhase(); //send a signal to do the next step 
