@@ -24,7 +24,7 @@ export class Clock extends Component {
 
     startCountDown = () => {
         this.setState({
-            intervalID:setInterval(this.timer,100)
+            intervalID:setInterval(this.timer,1000)
         });   
     }
 
