@@ -9,30 +9,26 @@ export class Clock extends Component {
             timeLeft:props.givenTime*60,
             intervalID:''
         }
-        this.startCountDown =  this.startCountDown.bind(this);
-        this.timer = this.timer.bind(this);
-        this.clockSetter = this.clockSetter.bind(this);
-        this.reset = this.reset.bind(this);
-        this.buzzer = this.buzzer.bind(this);
     }
+    
     componentWillReceiveProps(nextProps){
         if(this.props.isPaused){
-        if(this.state.maxTime !== nextProps.givenTime*60){
-            this.setState({
-                maxTime:nextProps.givenTime*60,
-                timeLeft:nextProps.givenTime*60
-            });
+            if(this.state.maxTime !== nextProps.givenTime*60){
+                this.setState({
+                    maxTime:nextProps.givenTime*60,
+                    timeLeft:nextProps.givenTime*60
+                });
+            }
         }
     }
-    }
-    startCountDown(){
-        console.log("in start countDown: TimeLeft:"+this.state.timeLeft);
+
+    startCountDown = () => {
         this.setState({
             intervalID:setInterval(this.timer,100)
         });   
     }
-    timer(){
-        console.log("Calling the Timer");
+
+    timer = () => {
         let count = this.state.timeLeft - 1;
         if(count>=0){
             if(count===0) this.buzzer();
@@ -44,18 +40,20 @@ export class Clock extends Component {
             })
         }
     }
-    clockSetter(){
-        console.log("calling colckSetter isPaused:");
+
+    clockSetter = () => {
         this.props.pause();
         if(this.props.isPaused){
-            console.log("in the clock Setter calling startcountdown next");
             this.startCountDown();
         }else{
             clearInterval(this.state.intervalID);
         }
     }
-    reset(){
-        if(!this.props.isPaused) this.clockSetter();
+
+    reset = () => {
+        if(!this.props.isPaused){
+            this.clockSetter();
+        }
         this.props.reset();
         this.setState({
             maxTime:25*60,
@@ -65,10 +63,12 @@ export class Clock extends Component {
         sound.pause();
         sound.currentTime=0;
     }
-    buzzer(){
+
+    buzzer = () => {
         const sound = document.getElementById('beep');
         sound.play();
     }
+
   render() {
       let min=Math.floor(this.state.timeLeft/60).toString();
       let sec=(this.state.timeLeft%60).toString(); 
