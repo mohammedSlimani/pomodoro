@@ -5,7 +5,7 @@
 ## Purpose of this project
 - Practice React
 
-## Available Scripts
+## Run the project in your local machine
 
 In the project directory, you can run:
 - `yarn install`
