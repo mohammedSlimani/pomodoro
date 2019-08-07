@@ -73,7 +73,7 @@ export class Clock extends Component {
       let min=Math.floor(this.state.timeLeft/60).toString();
       let sec=(this.state.timeLeft%60).toString(); 
     return (
-      <div>
+      <div id="clock-container">
           <div id='timer-label'>{this.props.isSession?'session':'break'}</div>
           <div id='time-left'>{min<10? '0'+min:min} : {sec<10? '0'+sec:sec}</div>
           <br/>

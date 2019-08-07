@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Clock from './Components/Clock'
-
+import './styles/style.css'
 class App extends Component {
     constructor(props) {
         super(props);
@@ -57,7 +57,7 @@ class App extends Component {
     render() {
         let currentTime = this.state.isSession ? this.state.sessionTime : this.state.breakTime;
         return (
-            <div>
+            <div id="container">
                 <div id='session-label'>
                     Session Length
                     <button id='session-increment' onClick={this.controlSessionTime} value='+'>+</button>
@@ -71,7 +71,7 @@ class App extends Component {
                     <div id='break-length'>{this.state.breakTime}</div>
                     <button id='break-decrement' onClick={this.controlBreakTime} value='-'>-</button>
                 </div>
-                
+
                 <Clock isPaused={this.state.isPaused}
                     givenTime={currentTime}
                     sessionEnded={this.sessionEnded}

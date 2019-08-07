@@ -1,0 +1,15 @@
+#session-label{
+    background-color: green;
+    display: flex;
+    flex-direction: row;
+}
+
+#break-label{
+     background-color: red;
+    display: flex;
+    flex-direction: row;
+}
+
+#clock-container{
+    background-color: aqua;
+}
