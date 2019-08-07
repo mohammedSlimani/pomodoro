@@ -12,16 +12,20 @@ class App extends Component {
         }
     }
 
+    //Switching the state from paused to start, vice versa
     pause = () => {
-        this.state.isPaused ? (this.setState({ isPaused: false })) : (this.setState({ isPaused: true }));
+        this.setState({
+            isPaused: !this.state.isPaused
+        })
     }
 
+    //from Session to break, vice versa 
     switchPhase = () => {
-        console.log("session ended");
         this.setState({
             isSession: !this.state.isSession
         })
     }
+
     controlSessionTime = (e) => {
         let myTime = this.state.sessionTime;
         e.target.value === '+' ? myTime++ : myTime--;
@@ -31,7 +35,7 @@ class App extends Component {
     }
 
     controlBreakTime = (e) => {
-        //this is redundent. :( 
+        //this is redundent. :(  Bad Code
         let myTime = this.state.breakTime;
         e.target.value === '+' ? myTime++ : myTime--;
         if (myTime > 60) { myTime = 60 }
