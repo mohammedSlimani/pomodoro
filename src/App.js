@@ -26,6 +26,7 @@ class App extends Component {
         })
     }
 
+    //Session Max time controller
     controlSessionTime = (e) => {
         let myTime = this.state.sessionTime;
         e.target.value === '+' ? myTime++ : myTime--;
@@ -34,6 +35,7 @@ class App extends Component {
         this.setState({ sessionTime: myTime });
     }
 
+    //Break Max Time controller
     controlBreakTime = (e) => {
         //this is redundent. :(  Bad Code
         let myTime = this.state.breakTime;
@@ -58,16 +60,18 @@ class App extends Component {
             <div>
                 <div id='session-label'>
                     Session Length
-            <button id='session-increment' onClick={this.controlSessionTime} value='+'>+</button>
+                    <button id='session-increment' onClick={this.controlSessionTime} value='+'>+</button>
                     <div id='session-length'>{this.state.sessionTime}</div>
                     <button id='break-decrement' onClick={this.controlSessionTime} value='-'>-</button>
                 </div>
+
                 <div id='break-label'>
                     Break Length
-            <button id='break-increment' onClick={this.controlBreakTime} value='+'>+</button>
+                    <button id='break-increment' onClick={this.controlBreakTime} value='+'>+</button>
                     <div id='break-length'>{this.state.breakTime}</div>
                     <button id='break-decrement' onClick={this.controlBreakTime} value='-'>-</button>
                 </div>
+                
                 <Clock isPaused={this.state.isPaused}
                     givenTime={currentTime}
                     sessionEnded={this.sessionEnded}
