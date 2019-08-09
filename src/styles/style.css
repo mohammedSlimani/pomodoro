@@ -33,10 +33,13 @@ button::-moz-focus-inner {
 }
 
 #clock-container{
-    background-color: red;
+    border: 2px solid aqua;
+    background-color: rgb(153, 67, 67);
     flex:5;
     align-self: center;
-    text-align: center;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 #container{
@@ -53,6 +56,19 @@ button::-moz-focus-inner {
     font-size: 20px;    
 }
 
-#session-length,#break-length{
-    
+#timer-label{
+    font-size: 2rem;
+}
+
+#time-left{
+    font-size: 4rem;
+}
+
+#start_stop{
+    width:5rem;
+}
+
+#reset{
+    margin-top: 2rem;
+    width:5rem;
 }
