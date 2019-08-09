@@ -2,6 +2,8 @@
 - This App will let you 
  Organize Your Time And focus on Tasks
  
+ # See the live Deploy [here](https://smed-pomodoro.herokuapp.com)
+ 
 ## Purpose of this project
 - Practice React
 
