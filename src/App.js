@@ -57,13 +57,18 @@ class App extends Component {
     render() {
         let currentTime = this.state.isSession ? this.state.sessionTime : this.state.breakTime;
         return (
+            <>
+            <div>
+                <center><h1>SMED POMODORO</h1></center>
+                    <center><a target="_blank" rel="noopener noreferrer" href="https://github.com/mohammedSlimani/pomodoro"><h5>See Source Code</h5></a></center>
+            </div>
             <div id="container">
                 <div id="control-container">
                     <div id='session-label'>
                         Session Length
                         <button id='session-increment' onClick={this.controlSessionTime} value='+'>+</button>
                         <div id='session-length'>{this.state.sessionTime}</div>
-                        <button id='break-decrement' onClick={this.controlSessionTime} value='-'>-</button>
+                        <button id='session-decrement' onClick={this.controlSessionTime} value='-'>-</button>
                     </div>
 
                     <div id='break-label'>
@@ -82,6 +87,7 @@ class App extends Component {
                     switchPhase={this.switchPhase}
                     isSession={this.state.isSession} />
             </div>
+            </>
         )
     }
 }
